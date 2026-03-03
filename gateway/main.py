@@ -20,10 +20,7 @@ async def health():
         "service": "gateway"
     }
 
-
-
-@app.post("/articles")
-async def add_article(data: RequestArticle):
+async def ingest_one(data: RequestArticle):
     article_id = str(uuid.uuid4())
 
     for_embed = {
@@ -44,8 +41,21 @@ async def add_article(data: RequestArticle):
         }
 
         store_response = await client.post("http://localhost:8002/articles/store", json=to_store)
-        status = store_response.json()
-    return status
+        return store_response.json()
+
+
+
+
+
+
+@app.post("/articles")
+async def add_article(data: list[RequestArticle]):
+
+        results = []
+        for article in data:
+             result = await ingest_one(article)
+             results.append(result)
+        return results
 
 
 @app.post("/search")

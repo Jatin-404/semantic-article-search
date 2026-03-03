@@ -1,0 +1,20 @@
+articles 
+
+[
+  {"title": "NASA Mars Mission", "content": "NASA has launched a new rover to explore the surface of Mars, searching for signs of ancient life and collecting soil samples."},
+  {"title": "SpaceX Starship Launch", "content": "SpaceX successfully tested its Starship rocket, marking a major milestone in plans for future Moon and Mars missions."},
+  {"title": "Python Programming Tips", "content": "Python developers can improve performance by using list comprehensions, avoiding global variables, and leveraging built-in functions."},
+  {"title": "JavaScript Frameworks", "content": "React and Vue continue to dominate frontend development, with developers praising their component-based architecture and large ecosystems."},
+  {"title": "Climate Change Report", "content": "A new UN report warns that global temperatures could rise by 2 degrees Celsius by 2050 unless carbon emissions are drastically reduced."},
+  {"title": "Solar Energy Growth", "content": "Solar panel installations have surged globally as governments invest in renewable energy to combat climate change and reduce fossil fuel dependency."},
+  {"title": "Premier League Results", "content": "Manchester City won 3-1 against Arsenal in a thrilling Premier League match, with Haaland scoring twice in the second half."},
+  {"title": "NBA Finals Preview", "content": "The Boston Celtics and Denver Nuggets are set to face off in the NBA Finals, with analysts predicting a close seven-game series."},
+  {"title": "ChatGPT New Features", "content": "OpenAI released a major update to ChatGPT adding memory, improved reasoning, and better code generation capabilities."},
+  {"title": "Machine Learning in Healthcare", "content": "Researchers are using machine learning models to detect early signs of cancer from medical scans with higher accuracy than human doctors."}
+]
+
+queries
+
+{"text": "rocket and space exploration"}
+{"text": "global warming and renewable energy"}
+{"text": "artificial intelligence and machine learning"}
