@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import uuid
 from pydantic import BaseModel
 from httpx import AsyncClient
+import asyncio
 
 class RequestArticle(BaseModel):
     title: str
@@ -45,16 +46,14 @@ async def ingest_one(data: RequestArticle):
 
 
 
-
-
-
 @app.post("/articles")
 async def add_article(data: list[RequestArticle]):
-
-        results = []
-        for article in data:
-             result = await ingest_one(article)
-             results.append(result)
+        tasks = [ingest_one(article) for article in data]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        # results = []
+        # for article in data:
+        #      result = await ingest_one(article)
+        #      results.append(result)
         return results
 
 

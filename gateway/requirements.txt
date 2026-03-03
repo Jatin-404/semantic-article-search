@@ -3,3 +3,4 @@ uvicorn
 pydantic
 uuid
 httpx
+asyncio
