@@ -6,3 +6,4 @@ httpx
 uuid
 asyncio
 dotenv
+python-json-logger

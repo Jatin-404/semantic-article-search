@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Loading embedding model")
-    app.state.model = SentenceTransformer("BAAI/bge-large-en-v1.5")
+    app.state.model = SentenceTransformer("BAAI/bge-large-en-v1.5", local_files_only=True)
     print("model loded")
     yield
     print("shutting down")

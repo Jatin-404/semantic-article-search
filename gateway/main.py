@@ -9,6 +9,10 @@ from pathlib import Path                                    #  used this instead
                                                             #  bcz my env files are in apps folder not in
 env_path = Path(__file__).resolve().parent / ".env"         # root dir so whule running from root dir
 load_dotenv(dotenv_path=env_path)                           # it searches for env in root dir and this fixes this prob
+from shared.logger import setup_logger
+
+logger = setup_logger("gateway")
+
 
 EMBED_URL=os.getenv("EMBED_URL")
 STORE_URL=os.getenv("STORE_URL")
@@ -29,12 +33,13 @@ app = FastAPI()
 
 @app.get("/health")
 async def health():
+    logger.info("status: healthy")
     return {
         "status": "ok",
         "service": "gateway"
     }
 
-async def ingest_one(data: RequestArticle, job_id: str):
+async def ingest_one(data: RequestArticle, job_id):
     article_id = str(uuid.uuid4())
 
     for_embed = {
@@ -59,6 +64,7 @@ async def ingest_one(data: RequestArticle, job_id: str):
     
 async def process_articles(data: list[RequestArticle], job_id: str):
     jobs[job_id] = {"status":"processing"}
+    logger.info(f"job {job_id} is processing")
     tasks = [ingest_one(article, job_id=job_id) for article in data]
     results = await asyncio.gather(*tasks, return_exceptions=True)
     # results = []
@@ -66,6 +72,7 @@ async def process_articles(data: list[RequestArticle], job_id: str):
     #      result = await ingest_one(article)
     #      results.append(result)
     jobs[job_id] = {"status":"completed", "results": results}
+    logger.info(f"job {job_id} processed completely")
     return results
 
 
@@ -74,6 +81,7 @@ async def process_articles(data: list[RequestArticle], job_id: str):
 async def add_article(data: list[RequestArticle], background_tasks: BackgroundTasks):
     job_id = str(uuid.uuid4())
     jobs[job_id] = {"status": "queued"}
+    logger.info(f"job_id {job_id} assigned to artcle/articles and queued")
     background_tasks.add_task(process_articles, data, job_id)
     return{
         "job_id": job_id,
@@ -87,6 +95,7 @@ async def job_status(job_id: str):
 
     job = jobs[job_id]
 
+    logger.info(f"requested status for job {job_id}")
     response = {
         "job_id": job_id,
         "status": job["status"]
@@ -100,12 +109,14 @@ async def search_query(data: RequestQuery):
     query = data.text
 
     async with AsyncClient() as client:
+        logger.info("connecting with embedding service")
         embed_response = await client.post(f"{EMBED_URL}/embedding", json={"text": [query]})
         embeddings = embed_response.json()["embeddings"][0]  #embeddings is a list of vectors (one per text), [0] gets the first one since we only sent one text.
 
         for_search = {
             "query_vector": embeddings
         }
+        logger.info("connecting with search service")
         call_response = await client.post(f"{SEARCH_URL}/search/compare", json=for_search)
 
         return call_response.json()
