@@ -1,7 +1,7 @@
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI, BackgroundTasks, HTTPException
 import uuid
 from pydantic import BaseModel
-from httpx import AsyncClient
+from httpx import AsyncClient, RequestError, HTTPStatusError
 import asyncio
 import os
 from dotenv import load_dotenv
@@ -12,7 +12,6 @@ load_dotenv(dotenv_path=env_path)                           # it searches for en
 from shared.logger import setup_logger
 
 logger = setup_logger("gateway")
-
 
 EMBED_URL=os.getenv("EMBED_URL")
 STORE_URL=os.getenv("STORE_URL")

@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Loading embedding model")
-    app.state.model = SentenceTransformer("BAAI/bge-large-en-v1.5", local_files_only=True)
+    app.state.model = SentenceTransformer("BAAI/bge-large-en-v1.5", local_files_only=True)  # local_files_only used bcz i was getting some SSL error while dowloading the model, so this here helps to get the model from cache
     print("model loded")
     yield
     print("shutting down")

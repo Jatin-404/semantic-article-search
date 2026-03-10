@@ -1,0 +1,56 @@
+
+[
+  {
+    "title": "India Wins T20 World Cup 2026",
+    "content": "The Indian cricket team made history on March 8, 2026, by defeating New Zealand by 96 runs in the final at Ahmedabad. Sanju Samson's 89 and Jasprit Bumrah's 4-wicket haul secured India's third title and first successful defense."
+  },
+  {
+    "title": "Artemis II Lunar Flyby",
+    "content": "NASA's Artemis II mission, carrying four astronauts, is scheduled for a 10-day lunar flyby in early 2026. This marks the first human presence near the Moon since the 1970s, testing critical life-support systems for future landings."
+  },
+  {
+    "title": "ISRO Gaganyaan-1 Launch",
+    "content": "ISRO is preparing for the Gaganyaan-1 uncrewed orbital test flight in late March 2026. The mission will carry the Vyommitra robot to validate human spaceflight technologies before India's first crewed mission."
+  },
+  {
+    "title": "F1 Australian Grand Prix",
+    "content": "Mercedes dominated the 2026 season opener in Melbourne, with George Russell taking the win. Lewis Hamilton, in his highly anticipated second season with Ferrari, finished on the podium after a thrilling duel with his former teammate."
+  },
+  {
+    "title": "Total Lunar Eclipse 2026",
+    "content": "On March 3, 2026, a total lunar eclipse turned the Moon a coppery red. The 'Blood Moon' was visible across the Pacific, eastern Asia, and parts of North America, with the Moon passing through the constellation Leo."
+  },
+  {
+    "title": "AI Hardware Evolution",
+    "content": "New AI-integrated hardware devices are gaining traction in 2026. While some early attempts like the Humane pin failed, smart glasses from Meta and folding phones from Apple are now mainstream, offering natural AI interactions."
+  },
+  {
+    "title": "China's Chang’e 7 Mission",
+    "content": "China's CNSA has finalized plans for the Chang’e 7 mission to the lunar south pole later in 2026. The mission includes a rover and a mini-flying probe designed to search for water ice in permanently shadowed craters."
+  },
+  {
+    "title": "Premier League Title Race",
+    "content": "As of March 2026, the Premier League title race remains tight. Manchester City and Arsenal continue to swap top positions, while Newcastle United emerges as a serious contender following a string of late-season victories."
+  },
+  {
+    "title": "Zodiacal Light Observation",
+    "content": "Astronomers in early March 2026 reported clear views of the zodiacal light in dark-sky locations. This faint, wedge-shaped glow, caused by sunlight scattering off interplanetary dust, was most visible in the western sky after twilight."
+  },
+  {
+    "title": "Bill Gates-Backed Nuclear Plant",
+    "content": "TerraPower, a startup founded by Bill Gates, received final clearance in March 2026 to begin construction on a next-generation nuclear power plant in Wyoming, aiming to provide a clean energy alternative to fossil fuels."
+  }
+]
+
+
+queries:
+{"text": "cricket world cup results and india"}
+{"text": "lunar missions and moon water ice"}
+{"text": "renewable energy and nuclear power plants"}
+{"text": "formula 1 racing and ferrari"}
+{"text": "astronomy and total lunar eclipse"}
+{"text": "ai hardware and smart glasses"}
+{"text": "premier league standings and football news"}
+{"text": "nasa artemis and human spaceflight"}
+{"text": "isro gaganyaan mission and robotics"}
+{"text": "climate change solutions and carbon reduction"}
